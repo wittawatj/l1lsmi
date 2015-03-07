@@ -89,4 +89,39 @@ end
 
 ```
 
+### Demo Output 
+    S = 
+
+            timetictoc: 4.2043
+               timecpu: 8.8500
+                     F: [1 1 0 0 0 0 0 0 0 0]
+                    ZT: [1x1 struct]
+                ZTLogs: {[1x1 struct]}
+            redun_rate: 6.0813e-04
+        abs_redun_rate: 6.0813e-04
+
+
+    ans =
+
+         1     1     0     0     0     0     0     0     0     0
+
+
+    ans =
+
+        0.5290
+        0.7510
+             0
+             0
+             0
+             0
+             0
+             0
+             0
+             0
+
+meaning only the first two features (dimensions) among the 10 features are 
+relevant to explain the output Y. This makes sense as the output Y in our toy 
+dataset depends on only the first two features.
+
+
 
