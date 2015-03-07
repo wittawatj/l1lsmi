@@ -1,0 +1,132 @@
+<html>
+
+<head> <title> Example: Minimize the general dimension Rosenbrock function using minimize.m </title> </head>
+
+Carl Edward Rasmussen, 2001-07-18.<p>
+
+<h2>How to use the minimize function</h2>
+
+This is an example of how to use the minimize function. First you need to 
+supply a function which returns function values and a vector of partial
+derivatives of the function. As an example, we will use the Rosenbrock
+function, see <a href="./rosenbrock.m">rosenbrock.m</a>.<p>
+
+To start from [0 0]' and allow a maximum of 25 linesearches to minimize the
+function, do:
+
+<pre>
+>> [x fx c] = minimize([0 0]', 'rosenbrock', 25)
+Linesearch     20;  Value= 2.724035e-30
+x =
+   1.00000000000000
+   1.00000000000000
+fx =
+   0.78251060908545
+   0.39556533940410
+   0.21891183735928
+   0.08594362786359
+   0.08167279250615
+   0.04803799828332
+   0.03385004042904
+   0.01810891772958
+   0.01747706436156
+   0.01719294050541
+   0.00647710313861
+   0.00317008743069
+   0.00002390064486
+   0.00000859309602
+   0.00000859309029
+   0.00000076626706
+   0.00000000009216
+   0.00000000000000
+   0.00000000000000
+   0.00000000000000
+c =
+    22
+</pre>
+
+this shows that the minimum (at x = [1 1]') was found after c = 22 iterations
+and fx contains the function value after each iteration. If instead we want to
+limit the search to 25 function evaluations:
+
+<pre>
+>> [x fx c] = minimize([0 0]', 'rosenbrock', -25)
+Function evaluation     23;  Value= 1.810892e-02
+x =
+   0.86905063456945
+   0.75343426564357
+fx =
+   0.78251060908545
+   0.39556533940410
+   0.21891183735928
+   0.08594362786359
+   0.08167279250615
+   0.04803799828332
+   0.03385004042904
+   0.01810891772958
+c =
+    25
+</pre>
+
+where the function value has been reduced to 0.018. Note that in this example
+each iteration (linesearch) used an average of around 3 function
+evaluations.<p>
+
+<h2>How efficient is minimize?</h2>
+
+This question is very difficult to answer generally. However, for more
+challenging problems many people have found that minimize is very efficient
+compared to other routines. For example, using the matlab optimiztion toolbox,
+(Version 2.0 (R11) 09-Oct-1998) for a 100 dimensional Rosenbrock problem:
+
+<pre>
+>> x0 = zeros(100, 1);
+>> a = fminunc('rosenbrock', x0, optimset('GradObj', 'on', 'MaxFunEval', 20));
+>> disp([rosenbrock(x0) rosenbrock(a)])
+  99.00000000000000  88.38645133447895
+</pre>
+
+reduces the function from 99 to around 88 using 2121 function and gradient
+evaluations (don't ask me why it calls the function 2121 times when MaxFunEval
+is set to 20). Using minimize:
+
+<pre>
+>> x0 = zeros(100, 1);
+>> a = minimize(x0, 'rosenbrock', -2121);
+Function evaluation   2120;  Value= 6.500827e-06
+>> disp([rosenbrock(x0) rosenbrock(a)])
+  99.00000000000000   0.00000650082744
+</pre>
+
+showing considerably more progress in the same number of function evaluations.
+For larger problems, the difference is even more severe: for the 1000
+dimensional Rosenbrock problem, minimize converges in 19640 function
+evaluations to a value of 5.552907e-26, whereas fminunc reduces the function
+value from 999 (at zero) to 980 in 21021 function evaluations (if you want to
+replicate this experiment, be aware that for some reason matlab's fminunc is
+computationally extremely slow for the 1000 dimensional problem).<p>
+
+<h2>Make sure that your partial derivatives are computed correctly!</h2>
+
+Once you have written a function to minimize, it may be wise to check that
+the function values and partial derivatives a consistent. If they are not
+consistent, then minimize will probably claim that no more progress can be
+made after only a few iterations. You may use the checkgrad
+(<a href="./checkgrad.m">checkgrad.m</a>) function, to compare the partial
+derivatives with finite difference approximations. Eg, we could try:
+
+<pre>
+>> randn('seed', 21);
+>> checkgrad('rosenbrock', randn(3,1), 1e-5)
+   1.0e+02 *
+   9.91926964244770   9.91926964286449
+  -3.76300059587095  -3.76300059622281
+   0.36091809447947   0.36091809448635
+ans =
+     2.569411416671008e-11
+</pre>
+
+to verify that the partial derivatives and finite differences approximation
+have very close values at some random point.
+
+</html>

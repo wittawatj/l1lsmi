@@ -1,0 +1,14 @@
+;pglsmi
+BASEHOCK;*0.12 (0.0, 11)
+CLL_SUB_111;*0.13 (0.0, 13)
+PCMAC;*0.22 (0.1, 8)
+SMK_CAN_187;*0.23 (0.0, 8)
+TOX_171;*0.20 (0.0, 12)
+amazon;*0.96 (0.1, 9)
+madelon;*0.30 (0.0, 14)
+olivetti;*0.20 (0.1, 12)
+usps;*0.28 (0.0, 15)
+warpPIE10P;*0.03 (0.0, 8)
+Wins;0
+Tops;10
+svc_svr_err;

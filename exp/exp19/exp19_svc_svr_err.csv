@@ -1,0 +1,9 @@
+;pglsmi
+BASEHOCK;*0.13 (0.0, 16)
+CLL_SUB_111;*0.14 (0.0, 14)
+SMK_CAN_187;*0.24 (0.0, 13)
+TOX_171;*0.20 (0.0, 17)
+warpPIE10P;*0.03 (0.0, 17)
+Wins;0
+Tops;5
+svc_svr_err;
