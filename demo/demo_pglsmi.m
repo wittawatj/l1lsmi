@@ -3,6 +3,7 @@ function  demo_pglsmi( )
 % Demonstrate how to use pglsmi (L1-LSMI).
 % pg is an internal code for 'Plain gradient'
 %
+rng(1);
 %%%%% Generate a toy dataset
 % X is #dim x #sample
 % Y is 1 x #sample
@@ -14,7 +15,7 @@ o.k = 2;
 
 % How many restarts ? More restarts of course give better features, but
 % slower.
-o.ztuner_repeat = 3;
+o.ztuner_repeat = 1;
 
 % LSMI cross validation fold
 o.fold = 5; 
