@@ -4,6 +4,11 @@ L1-LSMI is a Matlab package for non-linear supervised feature selection
 with L1-penalized squared-loss mutual information. See [this
 page](http://wittawat.com/pages/l1lsmi.html) on my web site for more details.
 
+The source tree in this git repository includes all files I used for
+experiments and possibly other third-party packages. If you just need the
+minimal L1-LSMI package, grab [this
+zip](http://wittawat.com/pages/files/l1lsmi.zip) instead.
+
 ## License 
 ![GPL v3](http://www.gnu.org/graphics/gplv3-127x51.png "GPL v3")
 
