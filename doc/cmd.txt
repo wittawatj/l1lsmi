@@ -1,0 +1,11 @@
+FMeasureBar(1,{'log3','plus', 'xor5',  'sin5'}, {'bahsic', 'balsmi', 'fohsic', 'folsmi','wlsmi_reprseq','dhsic_reprseq', 'dhsic_nms_reprseq', 'pc'})
+
+FMeasureBar(1,{ 'sca3', 'xor5',  'sin5','plusc'}, {'bahsic', 'balsmi', 'fohsic', 'folsmi', 'dlsmi_reprseq', 'dlsmi_reprseq_e0', 'dlsmi_reprseq_e0r1', 'dlsmi_reprseq_e1', 'dhsic_reprseq','dhsic_reprseq_e0','dhsic_reprseq_e0r1','dhsic_reprseq_e1', 'pc'})
+
+allFeaturesVsErr(6, {})
+
+FMeasureBar(1, { '3clusters','exp2_6', 'xor'}, {'bahsic', 'balsmi', 'dhsic_reprseq_e0', 'dlsmi_reprseq_e0', 'fohsic', 'fo
+
+
+FMeasureBar(1, { '3clusters','exp2_6', 'xor'}, {'bahsic', 'balsmi', 'dhsic_reprseq_e0', 'dlsmi_reprseq_e0', 'fohsic', 'fo
+

@@ -1,0 +1,31 @@
+
+== Options keys ==
+- v = Diagonal W's l1 regularization parameter 
+- fold = number of folds to do in cross validation 
+- sigmazfactor_list = list of candidates to be multiplied with pair-wise
+  median distance of all Z_i, then used as the Gaussian width parameter for
+  Z.
+- sigmayfactor_list = list of candidates to to be multiplied with pair-wise
+  median distance of all Y_i, then used as the Gaussian width parameter for
+  Y. This is used only when Gaussian kernel is used on Y (regression
+  problems).
+- lsmilambda_list = list of candidates of LSMI's lambda
+- seed = seed of randomness
+- b = number of basis functions
+- winitfunc = function to initialize W. f: m -> R^m. Return an
+  m-dimensional vector for diagonal entries of W.
+- usedeltakernel = If true, then Delta kernel is used on Y 
+  (for classification problems).
+- wpenaltyfunc = penalty function for W (typically an approximation of l1)
+  (in undlsmi)
+- wlearner =  wlearner = function which learns W. f: (X,Y,options) -> [W, fvalue].
+- k = number of features to select
+- wranker = function which returns a ranked list of m features. f: W ->
+  rank_list. rank_list may have length less than m. See also WRanker class.
+
+== Interface ==
+- vtuner_xxx = function which tunes v parameter
+- 
+
+vark functions
+- 
